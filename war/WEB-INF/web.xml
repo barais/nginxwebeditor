@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+	
+    <context-param>
+        <param-name>maxSize</param-name>
+        <param-value>5242880</param-value>
+    </context-param>
+    <context-param>
+        <!-- used in dev mode to slow uploads. 
+        Put the number of milliseconds to sleep in each block received in the server.
+        false or 0, means don't use slow uploads -->
+        <param-name>slowUploads</param-name>
+        <param-value>200</param-value>
+    </context-param>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>fileSystemServiceImpl</servlet-name>
+		<servlet-class>org.kevoree.nginx.server.FileSystemServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>downloadServlet</servlet-name>
+		<servlet-class>org.kevoree.nginx.server.DownloadServlet</servlet-class>		 
+	</servlet>
+	<servlet>
+		<servlet-name>propertiesServiceImpl</servlet-name>
+		<servlet-class>org.kevoree.nginx.server.PropertiesServiceImpl</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>fileSystemServiceImpl</servlet-name>
+		<url-pattern>/gwtnginxeditor/fs</url-pattern> <!-- GWT looking for filemanager/filemanager/fs ? -->
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>downloadServlet</servlet-name> <!-- looking for the root context for downloads? -->
+		<url-pattern>/dn</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>propertiesServiceImpl</servlet-name> <!-- looking for the root context for downloads? -->
+		<url-pattern>/gwtnginxeditor/prop</url-pattern>
+	</servlet-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>Filemanager.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>

@@ -1,0 +1,126 @@
+/** Add css rules here for your application. */
+img { border: none; }
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px 0px 70px;
+  text-align: center;
+}
+
+.sendButton {
+  display: block;
+  font-size: 16pt;
+}
+
+/** Most GWT widgets already have a style name defined -- DialogBox has issues with resizing */
+.gwt-DialogBox {
+  width: 550px;
+}
+
+.dialogVPanel {
+  margin: 5px;
+}
+
+.serverResponseLabelError {
+  color: red;
+}
+
+/** Set ids using widget.getElement().setId("idOfElement") */
+#closeButton {
+  margin: 15px 6px 6px;
+}
+
+#header{
+
+}
+
+#files-table{
+  width:100%;
+  margin-left: 0px !important;
+}
+
+.files-table-small-column {
+  text-align: center;
+  width:0.1em;
+  padding:1px;
+}
+
+.files-table-header-cell{
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #000000; /*#6D929B;*/
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA url(imgs/bg_header.jpg) no-repeat;
+}
+
+#footer{
+	padding:4px;
+    background-color: #b7d6f6;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 30px;
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+
+#content{
+	background-color:white;
+	padding:0px;
+}
+
+.button{
+	font-size:9px;
+	background-color:red;
+}
+
+.gwt-SplitLayoutPanel .gwt-SplitLayoutPanel-HDragger {
+
+}
+
+#logo-panel{
+	background-color:ccc;
+	height: 50px;        
+}
+
+.gwt-TreeItem {
+    background-image: url("imgs/icon_folder.gif");
+    background-repeat: no-repeat;
+    padding-left: 20px !important;
+    white-space: nowrap;
+}
+
+.gwt-Tree .gwt-TreeItem-selected {
+    background: #e3e8f3 url("imgs/icon_folder.gif") no-repeat !important;
+    padding-left: 20px !important;
+    white-space: nowrap;
+    background-color: red;
+}
+
+.progress {	
+  border: 2px solid #faf9f7;
+  border-right: 2px solid #848280;
+  border-bottom: 2px solid #848280;
+  background-color: #AAAAAA;
+  height: 14pt;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  color: white;
+}
+
+.files-table-odd {
+    background-color:#eeeeee;
+}
+
+.gwt-Button {
+    margin-left: 2px !important;
+    font-size: 10px !important;
+}
+
+/*#mainContainer { width: 450px;}*/
