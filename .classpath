@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-simple-1.7.7.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.eclipse.jgit-3.4.1.201406201815-r.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
