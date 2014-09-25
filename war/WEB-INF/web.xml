@@ -3,18 +3,11 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
               http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
-	
-    <context-param>
-        <param-name>maxSize</param-name>
-        <param-value>5242880</param-value>
-    </context-param>
-    <context-param>
-        <!-- used in dev mode to slow uploads. 
-        Put the number of milliseconds to sleep in each block received in the server.
-        false or 0, means don't use slow uploads -->
-        <param-name>slowUploads</param-name>
-        <param-value>200</param-value>
-    </context-param>
+
+	<context-param>
+		<param-name>maxSize</param-name>
+		<param-value>5242880</param-value>
+	</context-param>
 
 	<!-- Servlets -->
 	<servlet>
@@ -23,13 +16,13 @@
 	</servlet>
 	<servlet>
 		<servlet-name>downloadServlet</servlet-name>
-		<servlet-class>org.kevoree.nginx.server.DownloadServlet</servlet-class>		 
+		<servlet-class>org.kevoree.nginx.server.DownloadServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>propertiesServiceImpl</servlet-name>
 		<servlet-class>org.kevoree.nginx.server.PropertiesServiceImpl</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>fileSystemServiceImpl</servlet-name>
 		<url-pattern>/gwtnginxeditor/fs</url-pattern> <!-- GWT looking for filemanager/filemanager/fs ? -->
@@ -43,9 +36,35 @@
 		<url-pattern>/gwtnginxeditor/prop</url-pattern>
 	</servlet-mapping>
 
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>			
+		</web-resource-collection>
+
+		<auth-constraint>
+			<role-name>nginxuser</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.html</form-login-page>
+			<form-error-page>/login-failed.html</form-error-page>
+		</form-login-config>
+	</login-config>
+
 	<!-- Default page to serve -->
 	<welcome-file-list>
-		<welcome-file>Filemanager.html</welcome-file>
+		<welcome-file>GWTNginxeditor.html</welcome-file>
 	</welcome-file-list>
 
 </web-app>
