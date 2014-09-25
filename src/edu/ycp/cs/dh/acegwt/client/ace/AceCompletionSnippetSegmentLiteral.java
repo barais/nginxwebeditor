@@ -37,7 +37,6 @@ public class AceCompletionSnippetSegmentLiteral implements AceCompletionSnippetS
 		this.literalText = literalText;
 	}
 
-	@Override
 	public String getPreparedText(int tabstopNumber) {
 		final String escapedText = literalText.replace("\\", "\\\\").replace("$", "\\$");
 		return escapedText;

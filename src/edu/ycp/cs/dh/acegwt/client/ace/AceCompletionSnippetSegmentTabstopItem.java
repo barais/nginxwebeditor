@@ -38,7 +38,6 @@ public class AceCompletionSnippetSegmentTabstopItem implements AceCompletionSnip
 		this.tabstopText = tabstopText;
 	}
 	
-	@Override
 	public String getPreparedText(int tabstopNumber) {
 		
 		// Special characters need escaping so that we can support tokens, see demo to see how this works in practice

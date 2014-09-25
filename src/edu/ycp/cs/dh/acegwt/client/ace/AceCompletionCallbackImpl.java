@@ -36,7 +36,6 @@ class AceCompletionCallbackImpl implements AceCompletionCallback {
 		this.jsCallback = jsCallback;
 	}
 	
-	@Override
 	public void invokeWithCompletions(AceCompletion[] proposals) {
 		JsArray<JavaScriptObject> jsProposals = JavaScriptObject.createArray().cast();
 		for (AceCompletion proposal : proposals) {

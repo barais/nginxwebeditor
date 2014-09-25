@@ -443,15 +443,13 @@ public class FileTableWidget extends Composite implements Sortable {
 	private void editFile(final FileWrapper file) {
 		fileSystemSvc.getFileContents(file, new AsyncCallback<String>() {
 
-			@Override
 			public void onSuccess(String result) {
-				DialogBox c = createDialogBox(file,result);
+				DialogBox c = createDialogBox(file, result);
 				c.center();
 				c.show();
 
 			}
 
-			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
 
@@ -460,7 +458,8 @@ public class FileTableWidget extends Composite implements Sortable {
 
 	}
 
-	private DialogBox createDialogBox(final FileWrapper file,final String result) {
+	private DialogBox createDialogBox(final FileWrapper file,
+			final String result) {
 		// Create a dialog box and set the caption text
 		final DialogBox dialogBox = new DialogBox();
 		dialogBox.ensureDebugId("cwDialogBox");
@@ -480,7 +479,6 @@ public class FileTableWidget extends Composite implements Sortable {
 		editor.setTheme(AceEditorTheme.TWILIGHT);
 		editor.setText(result);
 		dialogContents.add(editor);
-		
 
 		HorizontalPanel hpanel = new HorizontalPanel();
 		// Add a close button at the bottom of the dialog
@@ -492,21 +490,21 @@ public class FileTableWidget extends Composite implements Sortable {
 		Button commitAndRestart = new Button("comixt and restart nginx",
 				new ClickHandler() {
 					public void onClick(ClickEvent event) {
-						fileSystemSvc.editandCommitFileContents(file, editor.getText(), new AsyncCallback<Boolean>() {
+						fileSystemSvc.editandCommitFileContents(file,
+								editor.getText(), new AsyncCallback<Boolean>() {
 
-							@Override
-							public void onSuccess(Boolean result) {
-								if (result)
-									dialogBox.hide();
-								else
-									Window.alert("cannot restart nginx, please check your conf");
-							}
-							@Override
-							public void onFailure(Throwable caught) {
-								Window.alert("cannot restart nginx, please check your conf");
-							}
-						});			
-						
+									public void onSuccess(Boolean result) {
+										if (result)
+											dialogBox.hide();
+										else
+											Window.alert("cannot restart nginx, please check your conf");
+									}
+
+									public void onFailure(Throwable caught) {
+										Window.alert("cannot restart nginx, please check your conf");
+									}
+								});
+
 					}
 				});
 

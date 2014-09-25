@@ -429,17 +429,14 @@ public class AceEditor extends Composite implements RequiresResize, HasText, Tak
 	/* (non-Javadoc)
 	 * @see com.google.gwt.user.client.ui.ResizeComposite#onResize()
 	 */
-	@Override
 	public void onResize() {
 		redisplay();
 	}
 
-	@Override
 	public void setValue(String value) {
 		this.setText(value);
 	}
 
-	@Override
 	public String getValue() {
 		return this.getText();
 	}
