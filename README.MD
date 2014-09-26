@@ -14,6 +14,11 @@ git add *
 git commit .
 ```
 
+### How to start the app
+```sh
+mvn exec:java -Dexec.mainClass=main.Main -Dexec.args="test test"
+```
+
 ### Used libraries
 from __https://github.com/brippe/GWT-FileManager.git__  
 and __Ace GWT__  
