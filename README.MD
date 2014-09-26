@@ -16,10 +16,10 @@ git commit .
 
 ### How to start the app
 ```sh
-mvn exec:java -Dexec.mainClass=main.Main -Dexec.args="test test"
+mvn exec:java -Dexec.mainClass=main.Main -Dexec.args="test test" # where test test are login and pass
 ```
 
-### Used libraries
+### Used libraries or projects
 from __https://github.com/brippe/GWT-FileManager.git__  
 and __Ace GWT__  
 and __jgit__
